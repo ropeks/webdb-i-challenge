@@ -24,11 +24,16 @@ function createAccount({ name, budget }) {
     return db('accounts').insert({ name, budget });
 }
 
+function updateAccount(id, { name, budget }) {
+    return db('accounts').where({ id }).update({ name, budget });
+}
+
 const configOptions = require('../knexfile').development;
 
 module.exports = {
     getAccounts,
     getAccountById,
     deleteAccount,
-    createAccount
+    createAccount,
+    updateAccount
 };

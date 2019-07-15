@@ -36,4 +36,12 @@ server.post('/accounts', async (req, res) => {
     }
 })
 
+server.put('/accounts/:id', async (req, res) => {
+    const { id } = req.params;
+    const { name, budget } = req.body;
+    await db.updateAccount(id, { name, budget });
+    const user = await db.getAccountById(id);
+    res.json(user[0]);
+})
+
 module.exports = server;
