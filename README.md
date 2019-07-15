@@ -45,6 +45,11 @@ Visit [SQL Try Editor at W3Schools.com](https://www.w3schools.com/Sql/tryit.asp?
 --SET PostalCode = '11122'
 --WHERE ContactName = 'Bilbo Baggins';
 
+- STRETCH:
+1. --SELECT COUNT (DISTINCT City) FROM Customers;
+2. --SELECT * FROM Suppliers
+   --WHERE LENGTH(SupplierName) > 20;
+
 
 **Clicking the `Restore Database` button in the page will repopulate the database with the original data and discard all changes you have made**.
 
