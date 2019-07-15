@@ -16,6 +16,10 @@ function getAccountById(id) {
     return db('accounts').where({ id });
 }
 
+function deleteAccount(id) {
+    return db('accounts').where({ id }).del();
+}
+
 function createAccount({ name, budget }) {
     return db('accounts').insert({ name, budget });
 }
@@ -25,5 +29,6 @@ const configOptions = require('../knexfile').development;
 module.exports = {
     getAccounts,
     getAccountById,
+    deleteAccount,
     createAccount
 };

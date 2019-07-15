@@ -20,6 +20,11 @@ server.get('/accounts/:id', async (req, res) => {
     res.json(accounts[0]);
 })
 
+server.delete('/accounts/:id', async (req, res) => {
+    db.deleteAccount(req.params.id);
+    res.status(201).json({ message: 'account deleted!' });
+})
+
 server.post('/accounts', async (req, res) => {
     try {
         const userId = await db.createAccount(req.body);
