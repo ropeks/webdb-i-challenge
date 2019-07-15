@@ -29,8 +29,10 @@ function updateAccount(id, { name, budget }) {
 };
 
 const configOptions = require('../knexfile').development;
+const config = knex(configOptions);
 
 module.exports = {
+    config,
     getAccounts,
     getAccountById,
     deleteAccount,
