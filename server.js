@@ -20,4 +20,15 @@ server.get('/accounts/:id', async (req, res) => {
     res.json(accounts[0]);
 })
 
+server.post('/accounts', async (req, res) => {
+    try {
+        const userId = await db.createAccount(req.body);
+        const user = await db.getAccountById(userId[0]);
+        res.status(201).json(user[0]);
+    } catch {
+        res.status(500)
+            .json({ message: 'cannot create account' });
+    }
+})
+
 module.exports = server;
